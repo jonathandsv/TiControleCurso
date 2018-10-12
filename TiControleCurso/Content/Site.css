@@ -1,0 +1,162 @@
+﻿/*body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}*/
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the top navigation bar */
+.topnav {
+    overflow: hidden;
+    background-color: #A52A2A;
+}
+
+    /* Style the topnav links */
+.topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+    /* Change color on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Style the content */
+.conteiner {
+    width: 100vw;
+    height: 100vh;
+    background-color: #ddd;
+    padding: 10px;
+    height: auto; /* Should be removed. Only for demonstration */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center; 
+    flex-wrap: wrap;
+}
+
+/* Style the footer */
+.footer {
+    background-color: #f1f1f1;
+    padding: 10px;
+}
+
+.box {
+    background-color: aliceblue;
+    padding: 10px;
+    /*height: 620px;*/
+    height: auto;
+    width: 500px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.box-medio {
+    background-color: #B22222;
+    width: auto;
+    height: auto;
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-bottom: 2px;
+    margin-top: 2px;
+    sha
+}
+
+.box-pequeno {
+    background-color: #FFFFFF;
+    width: auto;
+    height: auto;
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-bottom: 2px;
+    margin-top: 2px;
+}
+
+#tituloPrincipal {
+    text-align: center;
+    color: chocolate;
+}
+
+.subtituloBlocos {
+    color: white;
+}
+
+.selecaoAulas,
+.botaoSalvar
+{
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-bottom: 2px;
+    margin-top: 2px;
+}
+
+/*.botaoSalvar {
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+}
+
+.botaoSalvar:hover {
+    background-color: #ddd;
+    color: black;
+}*/
+
+.alinhamento-centro {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.finalizada {
+    color: red;
+}
+
+.campoNumero {
+    width: 50px;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    
+}
+
+.sombra-box {
+    box-shadow: 5px 5px 0 #333;
+    -webkit-box-shadow: 5px 5px 0 #333;
+    -moz-box-shadow: 5px 5px 0 #333;
+}
