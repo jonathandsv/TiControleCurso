@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TiControleCurso.Models;
 
 namespace TiControleCurso.Controllers
 {
@@ -25,6 +26,14 @@ namespace TiControleCurso.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public List<Aula> InserirAula(List<Aula> listaAulas)
+        {
+            ControleBO controle = new ControleBO();
+            controle.InserirAulas(listaAulas);
+
+            return (null);
         }
     }
 }
