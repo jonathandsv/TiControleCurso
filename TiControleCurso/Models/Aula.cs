@@ -8,8 +8,9 @@ namespace TiControleCurso.Models
     public class Aula
     {
         public string NomeAula { get; set; }
-        public bool Status { get; set; }
+        public string Status { get; set; }
         public int IdUsuario { get; set; }
         public string Uia { get; set; }
+        public string Materia { get; set; }
     }
 }

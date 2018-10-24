@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -28,12 +29,14 @@ namespace TiControleCurso.Controllers
             return View();
         }
 
-        public List<Aula> InserirAula(List<Aula> listaAulas)
+        [HttpGet]
+        public JsonResult InserirAulas(string listaAulas)
         {
+            var listaConvertida = JsonConvert.DeserializeObject<List<Aula>>(listaAulas);
             ControleBO controle = new ControleBO();
-            controle.InserirAulas(listaAulas);
+            controle.InserirAulas(listaConvertida);
 
-            return (null);
+            return Json(JsonRequestBehavior.AllowGet);
         }
     }
 }

@@ -21,7 +21,7 @@ namespace TiControleCurso.Models
             {
                 string conexao = ConexaoBanco();
 
-                string inserir = @"INSERT INTO AULAS (NOME, STATUS, ID_USUARIO, UIA) VALUES (@NOME, @STATUS, @ID_USUARIO, @UIA)";
+                string inserir = @"INSERT INTO AULAS (NOME, STATUS, ID_USUARIO, UIA, MATERIA) VALUES (@NOME, @STATUS, @ID_USUARIO, @UIA, @MATERIA)";
 
                 using (var sqlConn = new SqlConnection(conexao))
                 {
@@ -33,8 +33,9 @@ namespace TiControleCurso.Models
                         {
                             comm.Parameters.Add("@NOME", SqlDbType.VarChar, 50).Value = aulas[i].NomeAula;
                             comm.Parameters.Add("@STATUS", SqlDbType.VarChar, 50).Value = aulas[i].Status;
-                            comm.Parameters.Add("@ID_USUARIO", SqlDbType.VarChar, 50).Value = aulas[i].IdUsuario;
+                            comm.Parameters.Add("@ID_USUARIO", SqlDbType.Int).Value = aulas[i].IdUsuario;
                             comm.Parameters.Add("@UIA", SqlDbType.VarChar, 50).Value = aulas[i].Uia;
+                            comm.Parameters.Add("@MATERIA", SqlDbType.VarChar, 50).Value = aulas[i].Materia;
 
                             comm.ExecuteNonQuery();
                         }
