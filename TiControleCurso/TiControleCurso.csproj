@@ -153,6 +153,7 @@
     </Compile>
     <Compile Include="Models\Aula.cs" />
     <Compile Include="Models\ControleBO.cs" />
+    <Compile Include="Models\Va.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
