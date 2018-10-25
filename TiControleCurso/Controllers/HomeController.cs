@@ -48,13 +48,13 @@ namespace TiControleCurso.Controllers
             {
                 controle.InserirAulas(listaConvertida);
             }
-            else
-            {
-                for (int i = 0; i < aulasencontradas.Count; i++)
-                {
-                    aulasencontradas[i].Construcao !== listaConvertida[] 
-                }
-            }
+            //else
+            //{
+            //    for (int i = 0; i < aulasencontradas.Count; i++)
+            //    {
+            //        aulasencontradas[i].Construcao != listaConvertida[];
+            //    }
+            //}
             
 
             return Json(JsonRequestBehavior.AllowGet);
