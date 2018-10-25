@@ -21,7 +21,7 @@ namespace TiControleCurso.Models
             {
                 string conexao = ConexaoBanco();
 
-                string inserir = @"INSERT INTO AULAS (NOME, STATUS, ID_USUARIO, UIA, MATERIA) VALUES (@NOME, @STATUS, @ID_USUARIO, @UIA, @MATERIA)";
+                string inserir = @"INSERT INTO AULAS (NOME, STATUS, ID_USUARIO, UIA, MATERIA, CONSTRUCAO) VALUES (@NOME, @STATUS, @ID_USUARIO, @UIA, @MATERIA, @CONSTRUCAO)";
 
                 using (var sqlConn = new SqlConnection(conexao))
                 {
@@ -36,6 +36,7 @@ namespace TiControleCurso.Models
                             comm.Parameters.Add("@ID_USUARIO", SqlDbType.Int).Value = aulas[i].IdUsuario;
                             comm.Parameters.Add("@UIA", SqlDbType.VarChar, 50).Value = aulas[i].Uia;
                             comm.Parameters.Add("@MATERIA", SqlDbType.VarChar, 50).Value = aulas[i].Materia;
+                            comm.Parameters.Add("@CONTRUCAO", SqlDbType.Int).Value = aulas[i].Construcao;
 
                             comm.ExecuteNonQuery();
                         }
@@ -44,6 +45,50 @@ namespace TiControleCurso.Models
                     }
                 }
                 return (null);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public List<Aula> BuscarAula(List<int> construcao)
+        {
+            try
+            {
+                string conexao = ConexaoBanco();
+
+                string stringBuscar = @"SELECT * FROM AULAS WHERE CONSTRUCAO = @CONSTRUCAO";
+
+                SqlConnection sqlConn = new SqlConnection(conexao);
+
+                List<Aula> listaDeAulas = new List<Aula>();
+
+                for (int i = 0; i < construcao.Count; i++)
+                {
+                    using (SqlCommand leitor = new SqlCommand(stringBuscar, sqlConn))
+                    {
+                        leitor.Parameters.Add("@CONSTRUCAO", SqlDbType.Int).Value = construcao[i];
+                        sqlConn.Open();
+                        SqlDataReader dr = leitor.ExecuteReader();
+
+                        while (dr.Read())
+                        {
+                            Aula aula = new Aula();
+                            aula.NomeAula = dr["NOME"].ToString();
+                            aula.Status = dr["STATUS"].ToString();
+                            aula.IdUsuario = Convert.ToInt32(dr["ID_USUARIO"]);
+                            aula.Uia = dr["UIA"].ToString();
+                            aula.Materia = dr["MATERIA"].ToString();
+                            aula.Construcao = Convert.ToInt32(dr["MATERIA"]);
+
+                            listaDeAulas.Add(aula);
+                        }
+                        sqlConn.Close();
+                    }
+                }
+                return (listaDeAulas);
             }
             catch (Exception ex)
             {

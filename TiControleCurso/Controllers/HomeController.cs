@@ -34,7 +34,28 @@ namespace TiControleCurso.Controllers
         {
             var listaConvertida = JsonConvert.DeserializeObject<List<Aula>>(listaAulas);
             ControleBO controle = new ControleBO();
-            controle.InserirAulas(listaConvertida);
+            List<int> construcao = new List<int>();
+            List<Aula> aulasencontradas = new List<Aula>();
+
+            for (int i = 0; i < listaConvertida.Count; i++)
+            {
+                construcao.Add(listaConvertida[i].Construcao);
+            }
+
+            aulasencontradas = controle.BuscarAula(construcao);
+
+            if (aulasencontradas.Count == 0)
+            {
+                controle.InserirAulas(listaConvertida);
+            }
+            else
+            {
+                for (int i = 0; i < aulasencontradas.Count; i++)
+                {
+                    aulasencontradas[i].Construcao !== listaConvertida[] 
+                }
+            }
+            
 
             return Json(JsonRequestBehavior.AllowGet);
         }

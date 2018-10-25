@@ -3,8 +3,8 @@
 var iddamateria = 0;
 var iddauia = 0;
 var aulas = [];
-var inputsAulas = document.getElementsByClassName("aulasuia" + iddauia);
-var inputsVas = document.getElementsByClasseName("in");
+var inputsAulas;
+//var inputsVas = document.getElementsByClasseName("in");
 var comandoSalvar = 0;
 
 $(".botaoSalvar").click(function () {
@@ -28,6 +28,7 @@ $(".botaoSalvar").click(function () {
 //Aulas
 
 function SalvarAulas() {
+    inputsAulas = document.getElementsByClassName("aulasuia" + iddauia);
     VerificarAulas();
     $.ajax({
         type: 'GET',
@@ -56,6 +57,7 @@ function VerificarAulas() {
             aula.IdUsuario = 1;
             aula.Uia = "UIA " + iddauia;
             aula.Materia = iddamateria;
+            aula.Construcao = naula + iddauia + iddamateria;
 
             aulas.push(aula);
         }

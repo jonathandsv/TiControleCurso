@@ -12,5 +12,6 @@ namespace TiControleCurso.Models
         public int IdUsuario { get; set; }
         public string Uia { get; set; }
         public string Materia { get; set; }
+        public int Construcao { get; set; }
     }
 }
