@@ -27,21 +27,23 @@ namespace TiControleCurso.Models
                 {
                     using (SqlCommand comm = new SqlCommand(inserir, sqlConn))
                     {
-                        sqlConn.Open();
+                        
 
                         for (int i = 0; i < aulas.Count; i++)
                         {
+                            sqlConn.Open();
                             comm.Parameters.Add("@NOME", SqlDbType.VarChar, 50).Value = aulas[i].NomeAula;
                             comm.Parameters.Add("@STATUS", SqlDbType.VarChar, 50).Value = aulas[i].Status;
                             comm.Parameters.Add("@ID_USUARIO", SqlDbType.Int).Value = aulas[i].IdUsuario;
                             comm.Parameters.Add("@UIA", SqlDbType.VarChar, 50).Value = aulas[i].Uia;
                             comm.Parameters.Add("@MATERIA", SqlDbType.VarChar, 50).Value = aulas[i].Materia;
-                            comm.Parameters.Add("@CONTRUCAO", SqlDbType.Int).Value = aulas[i].Construcao;
+                            comm.Parameters.Add("@CONSTRUCAO", SqlDbType.Int).Value = aulas[i].Construcao;
 
                             comm.ExecuteNonQuery();
+                            sqlConn.Close();
                         }
 
-                        sqlConn.Close();
+                        
                     }
                 }
                 return (null);
